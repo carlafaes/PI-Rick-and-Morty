@@ -45,7 +45,7 @@ const postCharacter= async(req,res)=>{
         })
         // console.log(' este es el newCharacter:',newCharacter )
         // console.log('este es el ch:',ch )
-        //seteamos los episodes del array de episodios mediante la tabla intermedia
+        //seteamos los episodes del array de episodios mediante la tabla intermedia, a el nuevo personaje
         await newCharacter.setEpisodes(aCharacter.episode);
         console.log(newCharacter) //add/set + nombre del model en plural
         return res.send(newCharacter);
