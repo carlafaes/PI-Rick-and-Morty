@@ -29,7 +29,6 @@ const getAllCharacters= async (req,res) =>{
 const postCharacter= async(req,res)=>{
     try{
         const aCharacter= req.body;
-        if(aCharacter){
              //aCharacter guarda la info que recibe el form.
        
         let [newCharacter, ch]= await Character.findOrCreate({
@@ -44,19 +43,13 @@ const postCharacter= async(req,res)=>{
             }
             
         })
-        console.log(' este es el newCharacter:',newCharacter )
-        console.log('este es el ch:',ch )
+        // console.log(' este es el newCharacter:',newCharacter )
+        // console.log('este es el ch:',ch )
         //seteamos los episodes del array de episodios mediante la tabla intermedia
-        await newCharacter.setEpisodes(aCharacter.episode); //add/set + nombre del model en plural
+        await newCharacter.setEpisodes(aCharacter.episode);
+        console.log(newCharacter) //add/set + nombre del model en plural
         return res.send(newCharacter);
-    
-        }
-        else if(aCharacter.name === undefined){
-            console.log(aCharacter)
-        }
-        else{
-            return aCharacter;
-        }
+       
        }
     catch(e){
         console.error(e)

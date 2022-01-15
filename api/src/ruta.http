@@ -13,6 +13,5 @@ POST http://localhost:3001/character/create
     "name":"Rick Sanchez",
     "species": "Human",
     "origin": "Earth (C-137)",
-    "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-    "episode": [1,2,3]
+    "image":""
    }
