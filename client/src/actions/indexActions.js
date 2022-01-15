@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const ROUT_GET = 'http://localhost:3001/character/getCharacters'
 
-export function GetChar(){
+export function getChar(){
     return async function get(dispatch){
         let infoGet= await axios.get(ROUT_GET);
         return dispatch({

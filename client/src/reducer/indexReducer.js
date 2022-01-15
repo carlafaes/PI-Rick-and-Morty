@@ -3,7 +3,8 @@ import { GET_ALL } from "../actions/types";
 const initialState = {
     characters: [],//todos los personajes
     filtered:[],//filtrados q renderizamos
-    details:{}// renderiza detalles
+    details:{},// renderiza detalles
+    episodes:[], // estado de los episodios
 }
 
 export default function rootReducer(state=initialState,action){
