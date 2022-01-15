@@ -11,6 +11,7 @@ const getAllCharacters= async (req,res) =>{
         if(api || db){
             let apiResponse= api.data.results?.map((ch)=>{
                 return {
+                    id: ch.id,
                     name:ch.name,
                     species:ch.species,
                     origin:ch.origin.name,
@@ -19,7 +20,8 @@ const getAllCharacters= async (req,res) =>{
                 }
             })
             let response= [...apiResponse,db];
-            res.send(response);
+            // console.log('este es el response',response)
+            res.status(200).json(response);
         }
     }catch(e){
         console.error(e)
@@ -47,7 +49,7 @@ const postCharacter= async(req,res)=>{
         // console.log('este es el ch:',ch )
         //seteamos los episodes del array de episodios mediante la tabla intermedia, a el nuevo personaje
         await newCharacter.setEpisodes(aCharacter.episode);
-        console.log(newCharacter) //add/set + nombre del model en plural
+        // console.log(newCharacter) //add/set + nombre del model en plural
         return res.send(newCharacter);
        
        }
@@ -56,7 +58,36 @@ const postCharacter= async(req,res)=>{
     }
 }
 
+const idCharacter= async(req,res)=>{
+    const {id}=req.params;
+    // console.log(id)
+
+    let character;
+    try{
+        if(isNaN(id)){
+                character = await Character.findByPk(id)
+                console.log(character)
+            }else{
+                //API
+                character = await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
+                character = character.data
+            }
+            character?
+            // return 
+            res.status(200).json(character):
+            res.status(404).send("the character doesn't exist")
+       
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+       
+
+
+
 module.exports={
     getAllCharacters,
-    postCharacter
+    postCharacter,
+    idCharacter
 }
