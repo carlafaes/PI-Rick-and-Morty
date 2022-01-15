@@ -1,11 +1,13 @@
 const { Router } = require("express");
-const { getAllCharacters } = require("../controllers/characterCont");
+const { getAllCharacters,postCharacter } = require("../controllers/characterCont");
 
 const characterRouter = Router();
 
 // todas las REQ que llegan a este archivo, es porque comienzan con lo siguiente:
 // http:localhost:3001/character
 
-characterRouter.get('/getCharacters', getAllCharacters)
+characterRouter.get('/getCharacters', getAllCharacters);
+characterRouter.post('/create', postCharacter);
+
 
 module.exports = characterRouter;

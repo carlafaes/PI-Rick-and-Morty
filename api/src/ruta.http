@@ -1,0 +1,18 @@
+GET http://localhost:3001/character/getCharacters
+
+###
+
+GET http://localhost:3001/episode/getEpisodes
+
+###
+
+POST http://localhost:3001/character/create
+
+ Content-Type: application/json
+   {
+    "name":"Rick Sanchez",
+    "species": "Human",
+    "origin": "Earth (C-137)",
+    "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+    "episode": [1,2,3]
+   }
