@@ -60,7 +60,7 @@ const postCharacter= async(req,res)=>{
 
 const idCharacter= async(req,res)=>{
     const {id}=req.params;
-    // console.log(id)
+    // npm
 
     let character;
     try{
