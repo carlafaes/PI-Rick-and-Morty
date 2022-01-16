@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import Card from './Card';
+import Filter from './Filter';
 import {useDispatch, useSelector} from 'react-redux';
 import { getChar } from '../actions/indexActions';
 
@@ -10,7 +11,7 @@ export default function Cards(){
     const renderChar= useSelector((state)=> state.filtered);//arreglo de objetos
 
     useEffect(() => {
-        dispatch(getChar)
+        dispatch(getChar())
     }, [])
 
     return(
@@ -18,9 +19,12 @@ export default function Cards(){
             <h2>
                 Rick and Morty
             </h2>
+
+        <Filter/>
+
             {
-                renderChar.length >0?
-                renderChar.map((char,index)=>{
+                renderChar.length >0?(
+                renderChar.map((char,index)=>(
                     <>
                     <Card
                     key={index}
@@ -29,7 +33,8 @@ export default function Cards(){
                     species={char.species}
                     />
                     </>
-                }) :
+                ))
+                ):
                 (
                     <h1>Loading</h1>
                 )                
