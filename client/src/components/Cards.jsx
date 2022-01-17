@@ -12,7 +12,7 @@ export default function Cards(){
 
     useEffect(() => {
         dispatch(getChar())
-    }, [])
+    }, [dispatch])
 
     return(
         <div>

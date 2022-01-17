@@ -1,4 +1,4 @@
-import { GET_ALL, FILTER} from "../actions/types";
+import { GET_ALL, FILTER, GET_EPISODE} from "../actions/types";
 
 const initialState = {
     characters: [],//todos los personajes
@@ -31,9 +31,12 @@ export default function rootReducer(state=initialState,action){
                 }
             }
             else{
-                return{
-                    ...state
-                }
+                return state;
+            }
+        case GET_EPISODE:
+            return{
+                ...state,
+                episodes:action.payload,
             }
             
           default:
