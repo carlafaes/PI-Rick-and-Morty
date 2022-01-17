@@ -25,14 +25,14 @@ export default function Cards(){
             {
                 renderChar.length >0?(
                 renderChar.map((char,index)=>(
-                    <>
+                    <div key={index}>
                     <Card
-                    key={index}
+                    
                     name={char.name}
                     image={char.image}
                     species={char.species}
                     />
-                    </>
+                    </div>
                 ))
                 ):
                 (

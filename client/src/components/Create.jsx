@@ -3,10 +3,15 @@ import { useDispatch,useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { getEpisodes } from '../actions/indexActions';
+import axios from 'axios';
+import { useNavigate} from 'react-router-dom'
+
+
 
 export default function Create(){
  const dispatch= useDispatch();
  const stateEpisodes = useSelector(state => state.episodes)
+ const history= useNavigate();
 
 const [char,setChar]= useState({
     name: "",
@@ -23,7 +28,12 @@ function handleSelect(e){
     console.log(char)
 }
 
-function handleSubmit(){}
+async function handleSubmit(e){
+    e.preventDefault();
+    await axios.post('http://localhost:3001/character/create/', char);//solicitud al back de tipo 
+    alert('Character created succesfully!');
+    history('/home') //redireccion al home
+}
 
 function handleChange(e){
   setChar({
@@ -42,7 +52,7 @@ return(
         <input name='name' value={char.name} onChange={handleChange} />
 
         <label>Specie</label>
-        <input name='specie' value={char.specie} onChange={handleChange} />
+        <input name='species' value={char.specie} onChange={handleChange} />
 
         <label>Origin</label>
         <input name='origin' value={char.origin} onChange={handleChange} />
