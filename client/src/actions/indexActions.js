@@ -1,4 +1,4 @@
-import { GET_ALL,FILTER, GET_EPISODE } from "./types";
+import { GET_ALL,FILTER, GET_EPISODE,SEARCH_BY_NAME } from "./types";
 import axios from 'axios';
 
 export const ROUT_GET = 'http://localhost:3001/character/getCharacters'
@@ -33,3 +33,20 @@ export function getEpisodes(){
         })
     }
 }
+
+export const searchByName= (name)=>{
+    return async(dispatch)=>{
+        try{
+            const getName= await axios.get(`http://localhost:3001/character/getCharacters?name=${name}`)
+            console.log(getName.data, 'error getname')
+                return dispatch({
+                    type: SEARCH_BY_NAME,
+                    payload: getName.data,
+                })
+           }
+        catch(err){
+          console.log(err);
+        }
+   }
+      }
+    

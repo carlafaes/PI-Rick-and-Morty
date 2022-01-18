@@ -1,4 +1,4 @@
-import { GET_ALL, FILTER, GET_EPISODE} from "../actions/types";
+import { GET_ALL, FILTER, GET_EPISODE,SEARCH_BY_NAME} from "../actions/types";
 
 const initialState = {
     characters: [],//todos los personajes
@@ -38,6 +38,12 @@ export default function rootReducer(state=initialState,action){
                 ...state,
                 episodes:action.payload,
             }
+
+        case SEARCH_BY_NAME:
+                return {
+                  ...state,
+                  filtered: action.payload,
+                };
             
           default:
               return state;
