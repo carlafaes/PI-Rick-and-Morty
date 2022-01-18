@@ -4,16 +4,18 @@ const axios= require('axios');
 
 const getAllCharacters= async (req,res) =>{
    
+    //--------------------Name-----------------//
     try{
         let{name,order,page} = req.query;
         let api;
-        console.log(api,'este 1 api')
+        // console.log(api,'este 1 api')
         let db;
-        let response;
+        let response=[];
+        const charForPage= 5;
         if(name){
-             api = (await axios.get(`https://rickandmortyapi.com/api/character/?name=${name}`)).data.results
-            // api= await axios.get('https://rickandmortyapi.com/api/character')
-            //                                                                                  
+
+            // busqueda por nombre
+            api = (await axios.get(`https://rickandmortyapi.com/api/character/?name=${name}`)).data.results;                                                                                
             db= await Character.findAll({
                 include:Episode,
                 where:{
@@ -23,7 +25,8 @@ const getAllCharacters= async (req,res) =>{
                 }
             })
             response= [...db, api]
-            res.status(200).send(response.length ? response : 'Info character not found');
+            //res.status(200).send(response.length ? response : 'Info character not found');
+             res.status(200).json(response.slice(charForPage * (page -1), (charForPage * (page - 1)) + charForPage)) 
 
         }
         else{
@@ -44,11 +47,42 @@ const getAllCharacters= async (req,res) =>{
                     }
                 })
                 response= [...apiResponse,db];
-                // console.log('este es el response',response)
-                res.status(200).json(response);
+                 console.log('este es el response',response)
+                   res.status(200).json(response);
+                 // res.status(200).json(response.slice(charForPage * (page -1), (charForPage * (page - 1)) + charForPage))
             }
+              
+     
         }
        
+       
+         //----------------Order-------------------//
+
+            if(order === 'az' || !order){
+                response = response.sort((a,b) => {
+                    //  console.log((a),'a y b')
+                    return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
+                })
+                
+            }
+            else if(order === 'za'){
+                response = response.sort((a,b) => {
+                    //  console.log((a),'b y a')
+                    return b.name.toLowerCase().localeCompare(a.name.toLowerCase())
+                })
+            }
+
+        //-------------------Pagination-----------------------//
+        // if(page.length > 0){
+        //     return  res.json(response.slice(charForPage * (page -1), (charForPage * (page - 1)) + charForPage)) 
+        // }
+        // else{
+        //     return res.send('no existen los personajes')
+        // }
+       
+
+       
+
     }catch(e){
         console.error(e)
     }
