@@ -10,7 +10,7 @@ export default function SearchBar(){
 
     function onSubmit(e){
         e.preventDefault(e);
-        dispatch(searchByName(search));
+        dispatch(searchByName(search));//searchByName(search)
         setSearch('');
     }
 

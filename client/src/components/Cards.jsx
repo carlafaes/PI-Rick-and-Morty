@@ -11,7 +11,7 @@ export default function Cards(){
     const renderChar= useSelector((state)=> state.filtered);//arreglo de objetos
 
     useEffect(() => {
-        dispatch(getChar())
+        dispatch(getChar({}))
     }, [dispatch])
 
     return(

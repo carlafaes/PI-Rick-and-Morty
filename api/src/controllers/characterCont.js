@@ -11,7 +11,7 @@ const getAllCharacters= async (req,res) =>{
         // console.log(api,'este 1 api')
         let db;
         let response=[];
-        const charForPage= 5;
+        // const charForPage= 5;
         if(name){
 
             // busqueda por nombre
@@ -25,8 +25,8 @@ const getAllCharacters= async (req,res) =>{
                 }
             })
             response= [...db, api]
-            //res.status(200).send(response.length ? response : 'Info character not found');
-             res.status(200).json(response.slice(charForPage * (page -1), (charForPage * (page - 1)) + charForPage)) 
+            res.status(200).send(response.length ? response : 'Info character not found');
+            // res.status(200).json(response.slice(charForPage * (page -1), (charForPage * (page - 1)) + charForPage)) 
 
         }
         else{
