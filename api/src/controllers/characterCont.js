@@ -33,9 +33,14 @@ const getAllCharacters= async (req,res) =>{
             api= await axios.get("https://rickandmortyapi.com/api/character")
        
             //con el findAll decimos q traiga la info de la api, mas la info de la db,usando la pk(trae todos los personajes,de la api y creados)
-           db=await Character.findAll({include:Episode})//traigo un personaje con sus episodios incluidos
+           db=await Character.findAll({include:Episode})
+        //   console.log(db)
+           dbFlat= db.flat()
+         
+           //traigo un personaje con sus episodios incluidos
+
     
-            if(api || db){
+            if(api || dbFlat){
                 let apiResponse= api.data.results?.map((ch)=>{
                     return {
                         id: ch.id,
@@ -46,9 +51,12 @@ const getAllCharacters= async (req,res) =>{
                         episode:ch.episode,
                     }
                 })
-                response= [...apiResponse,db];
-                 console.log('este es el response',response)
-                   res.status(200).json(response);
+              
+                response= [...apiResponse,dbFlat];
+                let resFlat= response.flat()
+            //    console.log(db)
+             console.log('este es el response',resFlat)
+                res.status(200).json(resFlat);
                  // res.status(200).json(response.slice(charForPage * (page -1), (charForPage * (page - 1)) + charForPage))
             }
               
@@ -56,21 +64,6 @@ const getAllCharacters= async (req,res) =>{
         }
        
        
-         //----------------Order-------------------//
-
-            if(order === 'az' || !order){
-                response = response.sort((a,b) => {
-                    //  console.log((a),'a y b')
-                    return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
-                })
-                
-            }
-            else if(order === 'za'){
-                response = response.sort((a,b) => {
-                    //  console.log((a),'b y a')
-                    return b.name.toLowerCase().localeCompare(a.name.toLowerCase())
-                })
-            }
 
         //-------------------Pagination-----------------------//
         // if(page.length > 0){
@@ -108,7 +101,9 @@ const postCharacter= async(req,res)=>{
         // console.log(' este es el newCharacter:',newCharacter )
         // console.log('este es el ch:',ch )
         //seteamos los episodes del array de episodios mediante la tabla intermedia, a el nuevo personaje
-        await newCharacter.setEpisodes(aCharacter.episode);
+        let epiFlat= aCharacter.episode.flat()
+        // console.log(epiFlat,'este es el epiflat')
+        await newCharacter.setEpisodes(epiFlat);
         // console.log(newCharacter) //add/set + nombre del model en plural
         return res.send(newCharacter);
        
@@ -126,7 +121,7 @@ const idCharacter= async(req,res)=>{
     try{
         if(isNaN(id)){
                 character = await Character.findByPk(id)
-                console.log(character)
+                // console.log(character)
             }else{
                 //API
                 character = await axios.get(`https://rickandmortyapi.com/api/character/${id}`)

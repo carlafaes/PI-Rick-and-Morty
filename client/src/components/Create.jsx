@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { getEpisodes } from '../actions/indexActions';
-import axios from 'axios';
+import { getEpisodes,addCharType,addChar } from '../actions/indexActions';
+// import axios from 'axios';
 import { useNavigate} from 'react-router-dom'
 
 
@@ -13,6 +13,14 @@ export default function Create(){
  const stateEpisodes = useSelector(state => state.episodes)
  const history= useNavigate();
 
+ 
+useEffect(()=>{
+    dispatch(getEpisodes());
+    return ()=>{
+        dispatch(addCharType())
+    }
+},[dispatch])
+
 const [char,setChar]= useState({
     name: "",
     species: "",
@@ -20,6 +28,14 @@ const [char,setChar]= useState({
     image: "",
     episode:[],
 })
+function handleChange(e){
+    setChar({
+        ...char,
+        [e.target.name]: e.target.value, //se va modificando la prop name del estado a medida que se vaya lenando el input
+    })
+  }
+  
+
 function handleSelect(e){
     setChar({
         ...char,
@@ -28,23 +44,31 @@ function handleSelect(e){
     console.log(char)
 }
 
-async function handleSubmit(e){
+ function handleSubmit(e){
     e.preventDefault();
-    await axios.post('http://localhost:3001/character/create/', char);//solicitud al back de tipo 
-    alert('Character created succesfully!');
-    history('/home') //redireccion al home
+    // await axios.post('http://localhost:3001/character/create/', char);//solicitud al back de tipo 
+    let checkErr=[];
+    if(char.episode.length < 1){
+        checkErr.push('requires at least one episode')
+    }
+    // alert('Character created succesfully!');
+    // history('/home') //redireccion al home
+
+ 
+let succesChar= {
+    name: char.name,
+    species: char.species,
+    origin: char.origin,
+    image: char.image,
+    episode:char.episode,
+}
+console.log(succesChar)
+dispatch(addChar(succesChar));
+alert('Character created succesfully!');
+
+history('/home');
 }
 
-function handleChange(e){
-  setChar({
-      ...char,
-      [e.target.name]: e.target.value, //se va modificando la prop name del estado a medida que se vaya lenando el input
-  })
-}
-
-useEffect(()=>{
-    dispatch(getEpisodes());
-},[dispatch])
 
 return(
     <form onSubmit={handleSubmit}>
@@ -52,7 +76,7 @@ return(
         <input name='name' value={char.name} onChange={handleChange} />
 
         <label>Specie</label>
-        <input name='species' value={char.specie} onChange={handleChange} />
+        <input name='species' value={char.species} onChange={handleChange} />
 
         <label>Origin</label>
         <input name='origin' value={char.origin} onChange={handleChange} />
@@ -69,7 +93,7 @@ return(
                         {ep.name}
                     </option>
                     )
-                })
+                }).flat()
 
             }
         </select>

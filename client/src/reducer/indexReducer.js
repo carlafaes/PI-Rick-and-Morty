@@ -1,4 +1,5 @@
-import { GET_ALL, FILTER, GET_EPISODE,SEARCH_BY_NAME} from "../actions/types";
+import { orderFil } from "../actions/indexActions";
+import { GET_ALL, FILTER, GET_EPISODE,SEARCH_BY_NAME, ORDER,ADD_CHAR} from "../actions/types";
 
 const initialState = {
     characters: [],//todos los personajes
@@ -44,7 +45,43 @@ export default function rootReducer(state=initialState,action){
                   ...state,
                   filtered: action.payload,
                 };
-            
+
+        case ORDER:
+                let stateC= state.characters;
+                console.log(stateC, 'este es el stateC')
+                let orderAlf= action.payload === 'az' ? stateC.sort(function(a,b){
+                    console.log(a,b)
+                    if(b.name.toLowerCase() > a.name.toLowerCase()){
+                        return -1;
+                    }
+                    if(a.name.toLowerCase() > b.name.toLowerCase()){
+                        return 1;
+                    }
+                    else{
+                        return 0;
+                    }
+                }):
+                stateC.sort(function(a,b){
+                    if(a.name.toLowerCase() > b.name.toLowerCase()){
+                        return -1
+                    }
+                    if(a.name.toLowerCase() > b.name.toLowerCase()){
+                        return 1;
+                    }
+                    else{
+                        return 0;
+                    }
+                })
+                console.log('es el orderAlf',orderAlf)
+            return{
+                ...state,
+                filtered:orderAlf
+            }
+
+        case ADD_CHAR:
+            return{
+                ...state,
+            }
           default:
               return state;
   }
