@@ -4,19 +4,24 @@ import Filter from './Filter';
 import {useDispatch, useSelector} from 'react-redux';
 import { getChar, getEpisodes } from '../actions/indexActions';
 import Order from './Order';
+import SearchBar from './SearchBar'
 
 
 
-export default function Cards({set}){
+
+
+export default function Cards(){
     const dispatch = useDispatch();
     const renderChar= useSelector((state)=> state.filtered);//arreglo de objetos
     const [order,setOrder]= useState('');
+    
+
     useEffect(() => {
         dispatch(getChar())
         dispatch(getEpisodes())
     }, [dispatch])
 
-  
+   
     return(
         <div>
             <h2>
@@ -24,6 +29,10 @@ export default function Cards({set}){
             </h2>
         <Order set={setOrder}/>
         <Filter/>
+        <div>
+            <SearchBar set={setOrder}/>
+        </div>
+       
 
             {
                 renderChar.length >0?(

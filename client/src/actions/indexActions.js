@@ -1,4 +1,4 @@
-import { GET_ALL,FILTER, GET_EPISODE,SEARCH_BY_NAME, ORDER, ADD_CHAR } from "./types";
+import { GET_ALL,FILTER, GET_EPISODE,SEARCH_BY_NAME, ORDER, ADD_CHAR,GET_DETAILS,CLEAN_Q } from "./types";
 import axios from 'axios';
 
 export const ROUT_GET = `http://localhost:3001/character/getCharacters`
@@ -13,6 +13,24 @@ export function getChar(){
         })
     }
 }
+export function getDetails(id){
+    return async (dispatch)=>{
+        const details= await axios.get('http://localhost:3001/character/'+ id);
+        const data=details.data;
+        console.log(data, 'ESTE ES EL Data')
+        return dispatch({
+            type: GET_DETAILS,
+            payload:data,
+        })
+    
+}
+}
+export function cleanQ(payload) {
+    return {
+      type: CLEAN_Q,
+      payload,
+    };
+  }
 
 
 
@@ -60,7 +78,7 @@ export const searchByName= (name)=>{
           console.log(err);
         }
    }
-      }
+ }
       export function addChar(payload){
         return async function(dispatch){
             const created= await axios.post('http://localhost:3001/character/create/',payload);

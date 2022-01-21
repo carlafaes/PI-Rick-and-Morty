@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { getChar } from '../actions/indexActions';
-import SearchBar from './SearchBar'
+
 
 export default function NavBar(){
     const dispatch= useDispatch();
+    // const [search,setsearch]= useState('')
 
     function handleClick(e){
         e.preventDefault();
@@ -29,9 +31,7 @@ export default function NavBar(){
             </ul>
             </Link>
         </div>
-        <div>
-            <SearchBar/>
-        </div>
+        
         </div>
         
     )

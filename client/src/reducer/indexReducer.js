@@ -1,10 +1,10 @@
 import { orderFil } from "../actions/indexActions";
-import { GET_ALL, FILTER, GET_EPISODE,SEARCH_BY_NAME, ORDER,ADD_CHAR} from "../actions/types";
+import { GET_ALL, FILTER, GET_EPISODE,SEARCH_BY_NAME, ORDER,ADD_CHAR,GET_DETAILS, CLEAN_Q} from "../actions/types";
 
 const initialState = {
     characters: [],//todos los personajes
     filtered:[],//filtrados q renderizamos
-    details:{},// renderiza detalles
+    details:[],// renderiza detalles
     episodes:[], // estado de los episodios
 }
 
@@ -82,6 +82,16 @@ export default function rootReducer(state=initialState,action){
             return{
                 ...state,
             }
+        case GET_DETAILS:
+            return{
+                ...state,
+                details: action.payload,
+            };
+        case CLEAN_Q:
+                return {
+                  ...state,
+                  details: action.payload,
+                }
           default:
               return state;
   }

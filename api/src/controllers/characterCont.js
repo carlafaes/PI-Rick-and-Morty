@@ -53,7 +53,7 @@ const getAllCharacters= async (req,res) =>{
                 })
               
                 response= [...apiResponse,dbFlat];
-                let resFlat= response.flat()
+                let resFlat= response
             //    console.log(db)
              console.log('este es el response',resFlat)
                 res.status(200).json(resFlat);
@@ -115,14 +115,26 @@ const postCharacter= async(req,res)=>{
 
 const idCharacter= async(req,res)=>{
     const {id}=req.params;
+    console.log(id)
     // npm
 
     let character;
     try{
         if(isNaN(id)){
-                character = await Character.findByPk(id)
-                // console.log(character)
-            }else{
+                character = await Character.findByPk(id,{
+                    include:{
+                        model:Episode,
+                        attributes:['name'],
+                            through:{
+                                attributes:[],
+                            }
+                        }
+                    }
+                )
+                 console.log(character)
+            //  res.send(character)
+         }
+        else{
                 //API
                 character = await axios.get(`https://rickandmortyapi.com/api/character/${id}`)
                 character = character.data
@@ -134,9 +146,11 @@ const idCharacter= async(req,res)=>{
        
     }
     catch(err){
-        console.log(err);
+        console.log(err,'error de idCharacter');
     }
+    console.log(character,'idcharacter')
 }
+
        
 
 
