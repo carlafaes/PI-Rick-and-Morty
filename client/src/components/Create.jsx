@@ -93,7 +93,7 @@ return(
                         {ep.name}
                     </option>
                     )
-                }).flat()
+                })
 
             }
         </select>

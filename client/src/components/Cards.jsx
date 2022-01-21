@@ -13,6 +13,7 @@ import SearchBar from './SearchBar'
 export default function Cards(){
     const dispatch = useDispatch();
     const renderChar= useSelector((state)=> state.filtered);//arreglo de objetos
+    console.log(renderChar)
     const [order,setOrder]= useState('');
     
 
@@ -30,7 +31,8 @@ export default function Cards(){
         <Order set={setOrder}/>
         <Filter/>
         <div>
-            <SearchBar set={setOrder}/>
+            
+            <SearchBar value={setOrder}/>
         </div>
        
 
@@ -39,7 +41,7 @@ export default function Cards(){
                 renderChar.map((char,index)=>(
                     <div key={index}>
                     <Card
-                    
+                    id={char.id}
                     name={char.name}
                     image={char.image}
                     species={char.species}

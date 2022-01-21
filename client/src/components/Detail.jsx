@@ -26,12 +26,12 @@ console.log(personaje,'es el personaje')
             <button>Go Back</button>
             </Link>
             <div>
-                {personaje.length > 0 ?
+                {Object.values(personaje).length > 0 ?
                 <div>
                      <div>
                     <h1>{personaje.name}</h1>
-                    <h4>Species: {personaje.species}</h4>
-                    <h4>Origin: {personaje.origin}</h4>
+                     <h4>Species: {personaje.species}</h4>
+                    <h4>Origin: {personaje ? personaje.origin.name:personaje.name}</h4> 
                 </div>
                 <div>
                     <img src={personaje.image? personaje.image : personajeImg} alt="rickandmortyChar" />
@@ -39,7 +39,7 @@ console.log(personaje,'es el personaje')
                 <div>
                     <h4>Episodes: {personaje.createdInDb ? personaje.episode : personaje.episodes}</h4>
                 </div>
-                </div>
+                </div> 
                 :   <div className="loading"> Loading</div>
                
             }

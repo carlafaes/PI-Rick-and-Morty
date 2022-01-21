@@ -53,9 +53,9 @@ const getAllCharacters= async (req,res) =>{
                 })
               
                 response= [...apiResponse,dbFlat];
-                let resFlat= response
+                let resFlat= response.flat()
             //    console.log(db)
-             console.log('este es el response',resFlat)
+            //  console.log('este es el response',resFlat)
                 res.status(200).json(resFlat);
                  // res.status(200).json(response.slice(charForPage * (page -1), (charForPage * (page - 1)) + charForPage))
             }
@@ -85,6 +85,7 @@ const postCharacter= async(req,res)=>{
     try{
         const aCharacter= req.body;
              //aCharacter guarda la info que recibe el form.
+             console.log(aCharacter,'es el aCharacter')
        
         let [newCharacter, ch]= await Character.findOrCreate({
             //busca un personaje con las caracteristicas especificadas en el where, y si no lo encuentra lo crea
@@ -102,9 +103,9 @@ const postCharacter= async(req,res)=>{
         // console.log('este es el ch:',ch )
         //seteamos los episodes del array de episodios mediante la tabla intermedia, a el nuevo personaje
         let epiFlat= aCharacter.episode.flat()
-        // console.log(epiFlat,'este es el epiflat')
+         console.log(epiFlat,'este es el epiflat')
         await newCharacter.setEpisodes(epiFlat);
-        // console.log(newCharacter) //add/set + nombre del model en plural
+        console.log(newCharacter,'este es el new character') //add/set + nombre del model en plural
         return res.send(newCharacter);
        
        }
