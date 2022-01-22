@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { getEpisodes,addCharType,addChar } from '../actions/indexActions';
 // import axios from 'axios';
 import { useNavigate} from 'react-router-dom'
+import personajeImg from '../img/Rick-morty-1.jpeg'
 
 
 
@@ -82,7 +83,7 @@ return(
         <input name='origin' value={char.origin} onChange={handleChange} />
 
         <label>Image</label>
-        <input name='image' value={char.image} onChange={handleChange} />
+        <input name='image' value={char.image ? char.image : personajeImg} onChange={handleChange} />
 
         <select onChange={handleSelect}>
             {

@@ -31,13 +31,15 @@ console.log(personaje,'es el personaje')
                      <div>
                     <h1>{personaje.name}</h1>
                      <h4>Species: {personaje.species}</h4>
-                    <h4>Origin: {personaje ? personaje.origin.name:personaje.name}</h4> 
+                    <h4>Origin: {personaje ? personaje.origin.name : personaje.origin }</h4> 
                 </div>
                 <div>
                     <img src={personaje.image? personaje.image : personajeImg} alt="rickandmortyChar" />
                 </div>
                 <div>
-                    <h4>Episodes: {personaje.createdInDb ? personaje.episode : personaje.episodes}</h4>
+                      <h4>Episodes: {personaje.createdInDb ? personaje.episode : personaje.episodes.map((e)=>{   episodes:e.name
+                        
+                    })}</h4> 
                 </div>
                 </div> 
                 :   <div className="loading"> Loading</div>
