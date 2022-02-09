@@ -6,7 +6,7 @@ const getAllCharacters= async (req,res) =>{
    
     //--------------------Name-----------------//
     try{
-        let{name,order,page} = req.query;
+        let{name} = req.query;
         let api;
         // console.log(api,'este 1 api')
         let db;

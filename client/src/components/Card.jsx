@@ -7,13 +7,13 @@ export default function Card({name,image,species,id}){
     
 
     return(
-        <div>
+        <div className='image'>
             <div>
             <div>
                 <h1>Name: {name}</h1>
             </div>
             <div>
-            <img src={image? image : personajeIMG} alt="imgCard" />
+            <img src={image? image : personajeIMG} alt="imgCard" className='imgCard'/>
             </div>
             <div>
             <p>Specie: {species}</p>

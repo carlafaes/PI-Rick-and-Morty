@@ -37,9 +37,7 @@ console.log(personaje,'es el personaje')
                     <img src={personaje.image? personaje.image : personajeImg} alt="rickandmortyChar" />
                 </div>
                 <div>
-                      <h4>Episodes: {personaje.createdInDb ? personaje.episode : personaje.episodes.map((e)=>{   episodes:e.name
-                        
-                    })}</h4> 
+                      <h4>Episodes: {personaje.episode ? personaje.episode : personaje.episode.map((e)=> e.name)}</h4> 
                 </div>
                 </div> 
                 :   <div className="loading"> Loading</div>
