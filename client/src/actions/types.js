@@ -5,4 +5,6 @@ export const SEARCH_BY_NAME= 'SEARCH_BY_NAME';
 export const ORDER= 'ORDER';
 export const ADD_CHAR= 'ADD_CHAR';
 export const GET_DETAILS='GET_DETAILS';
-export const  CLEAN_Q = 'CLEAN_Q'
+export const  CLEAN_Q = 'CLEAN_Q';
+export const FILTER_ORIGIN='FILTER_ORIGIN';
+export const FILTER_CREATED='FILTER_CREATED';

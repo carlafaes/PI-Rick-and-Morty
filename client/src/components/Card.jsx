@@ -1,33 +1,48 @@
 import React from 'react';
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
+import './styles/Card.css'
 import personajeIMG from '../img/Rick-morty-1.jpeg'
+// import Modal from './Modal';
+// import Detail from './Detail';
 
 export default function Card({name,image,species,id}){
     
-
+    // const [seeModal,setSeeModal]= useState(false)
     return(
-        <div className='image'>
+        <>
+        {/* <Modal
+        seeModal={seeModal}
+        setSeeModal={setSeeModal}
+        >
+            <h1>detail</h1>
+           
+        </Modal> */}
+        <div className='container-card'>
             <div>
             <div>
-                <h1>Name: {name}</h1>
-            </div>
-            <div>
-            <img src={image? image : personajeIMG} alt="imgCard" className='imgCard'/>
+                <h1 className='titulo-card'>Name: {name}</h1>
             </div>
             <div>
             <p>Specie: {species}</p>
             </div>
+            <div>
+            <img src={image? image : personajeIMG} alt="imgCard" className='imgCard'/>
+            </div>
+            
         </div>
         
         <div>
+            
+            
             <Link to={`/home/${id}`}>
-            <button  >
-            Info
+            <button className='btn-info'  >
+            Learn More
            </button>
             </Link>
+            {/* <button onClick={()=> setSeeModal(true)}>mod</button> */}
         </div>
         </div>
-        
+        </>
     )
 }

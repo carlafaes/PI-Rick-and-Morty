@@ -6,6 +6,7 @@ import Create from './components/Create';
 import Landing from './components/Landing';
 import NavBar from './components/NavBar';
 import Detail from './components/Detail';
+import Modal from './components/Modal';
 
 
 

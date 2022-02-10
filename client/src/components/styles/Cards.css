@@ -1,22 +1,22 @@
 .slider{
 
     position: relative;
-    height: 40vh;
+    height: 70vh;
     width: 671px;
-    margin-left: 90px;
+    top: -537px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.image{
-    width: 280px;
-    height: 455px;
-    border-radius: 10px;
-}
-.imgCard{
-    width: 350px;
+    background: green;
+    margin-left: 261px;
+    z-index: 100;
 }
 
+
+
+
+
+/* z-index 10 */
 .right-arrow{
     position: absolute;
     top: 50%;
@@ -31,7 +31,7 @@
 .left-arrow{
     position: absolute;
     top: 50%;
-    left: 32px;
+    left: 67px;
     font-size: 3rem;
     color: black;
     z-index: 10;
@@ -48,4 +48,21 @@
     opacity: 1;
     transition-duration: 1s;
     transform: scale(1.10);
+  }
+  .menu-listas{
+      background-color: aqua;
+      z-index: 80;
+      height: 600px;
+      width: 250px;
+
+  }
+
+  .ul-menu{
+      padding-top: 60px;
+      padding-left: 6px;
+  }
+  .li-menu{
+      padding-top: 40px;
+      list-style: none;
+     
   }

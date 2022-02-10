@@ -18,7 +18,7 @@ export default function Order({set}){
 
     return(
         <div>
-            <label>Order Alf</label>
+            <label>Order Alphabetic<br/></label>
             <select id='btn-order'  onChange={(e)=>handleSelect(e)}>
                 <option value="az">az</option>
                 <option value="za">za</option>

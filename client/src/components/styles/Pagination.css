@@ -1,0 +1,22 @@
+.input-page{
+    background-color: aquamarine;
+    width: 49px;
+    height: 35px;
+    position: unset;
+    margin-top: 2px;
+    padding-left: 2px;
+    border-radius: 3px;
+}
+.max-page{
+    width: 40px;
+    height: 30px;
+}
+
+.container-page{
+    
+    display: flex;
+    flex-direction: row;
+    margin-left: 590px;
+    height: 43px;
+    margin-top: -498px;
+}

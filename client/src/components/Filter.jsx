@@ -12,6 +12,7 @@ export default function Filter(){
 
     return(
         <div>
+            <label >Filter By Species<br/></label>
             <select onChange={handleSelect}>
                 <option value="default">All</option>
                 <option value="Alien">Alien</option>

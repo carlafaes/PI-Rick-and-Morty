@@ -1,5 +1,5 @@
 import { orderFil } from "../actions/indexActions";
-import { GET_ALL, FILTER, GET_EPISODE,SEARCH_BY_NAME, ORDER,ADD_CHAR,GET_DETAILS, CLEAN_Q} from "../actions/types";
+import { GET_ALL, FILTER,FILTER_CREATED, GET_EPISODE,SEARCH_BY_NAME, ORDER,ADD_CHAR,GET_DETAILS,FILTER_ORIGIN, CLEAN_Q} from "../actions/types";
 
 const initialState = {
     characters: [],//todos los personajes
@@ -87,12 +87,39 @@ export default function rootReducer(state=initialState,action){
                 ...state,
                 details: action.payload,
             };
+        case FILTER_ORIGIN:
+            const allEpi= state.characters;
+            let filterEpi=[]
+            if(action.payload === 'all'){
+                filterEpi=allEpi;
+                console.log(filterEpi,'filter epi if')
+            }
+            else{
+                filterEpi= allEpi.filter(el => el.origin.includes( action.payload))
+            console.log(filterEpi,'filter epi')
+            }
+            return{
+                ...state,
+                filtered:filterEpi,
+            }    
+        
         case CLEAN_Q:
                 return {
                   ...state,
                   details: action.payload,
                 }
-          default:
-              return state;
-  }
+        case FILTER_CREATED:{
+            const createdFilter= action.payload === 'created' ?
+            state.characters.filter((el)=> el.created) :
+            state.characters.filter((el)=> !el.created);
+            const allRec= action.payload === 'all'? state.characters : createdFilter;
+            console.log(allRec,'allRec')
+              return{
+                ...state,
+                   filtered:allRec
+         }
+        }
+         default:
+            return state;
+}
 }

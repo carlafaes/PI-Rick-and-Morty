@@ -1,0 +1,21 @@
+.imgCard{
+    width: 430px;
+    height: 350px;
+}
+
+.container-card{
+       margin-top: -30px;
+        width: 430px;
+        height: 455px;
+        border-radius: 10px;
+        background-color: blue;
+}
+
+.titulo-card{
+    padding-top: 2px;
+}
+
+.btn-info{
+    margin-left: 40%;
+
+}

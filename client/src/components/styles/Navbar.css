@@ -1,0 +1,10 @@
+.navbar{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: blueviolet;
+    width: 100%;
+    left: 0%;
+    top: 1px;
+}

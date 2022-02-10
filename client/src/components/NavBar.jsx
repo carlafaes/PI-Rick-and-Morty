@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { getChar } from '../actions/indexActions';
+import './styles/Navbar.css';
 
 
 export default function NavBar(){
@@ -15,7 +16,7 @@ export default function NavBar(){
     }
 
     return(
-        <div>
+        <div className='navbar'>
             <div onClick={handleClick}>
             <Link to='/home'>
                 <ul>
@@ -23,7 +24,9 @@ export default function NavBar(){
                 </ul>
             </Link>
         </div>
-
+            <h2>
+                Rick and Morty
+            </h2>
         <div>
             <Link to='/create'>
             <ul>

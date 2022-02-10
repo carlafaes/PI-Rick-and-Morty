@@ -1,4 +1,4 @@
-import { GET_ALL,FILTER, GET_EPISODE,SEARCH_BY_NAME, ORDER, ADD_CHAR,GET_DETAILS,CLEAN_Q } from "./types";
+import { GET_ALL,FILTER,FILTER_CREATED, GET_EPISODE,SEARCH_BY_NAME, ORDER, ADD_CHAR,GET_DETAILS,CLEAN_Q,FILTER_ORIGIN } from "./types";
 import axios from 'axios';
 
 export const ROUT_GET = `http://localhost:3001/character/getCharacters`
@@ -53,6 +53,13 @@ export function getEpisodes(){
         })
     }
 }
+
+export function filterByOrigin(payload){
+    return{
+        type:FILTER_ORIGIN,
+        payload,
+    }
+}
 export function orderFil(value){
         return(dispatch)=>{
              dispatch({
@@ -87,4 +94,11 @@ export const searchByName= (name)=>{
         }
     }
     export const addCharType = () => ({type: ADD_CHAR})
+
+    export function filterCreated(payload){
+        return{
+            type:FILTER_CREATED,
+            payload
+        }
+    }
     
