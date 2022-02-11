@@ -5,7 +5,8 @@ import { useState } from 'react';
 import { getEpisodes,addCharType,addChar } from '../actions/indexActions';
 // import axios from 'axios';
 import { useNavigate} from 'react-router-dom'
-import personajeImg from '../img/Rick-morty-1.jpeg'
+import personajeImg from '../img/imgPer.jpg'
+import './styles/Create.css';
 
 
 
@@ -45,6 +46,14 @@ function handleSelect(e){
     console.log(char)
 }
 
+function handleSelectOrigin(e){
+    setChar({
+        ...char,
+        origin:[...char.origin, e.target.value]
+    })
+    console.log(char,'origin')
+}
+
  function handleSubmit(e){
     e.preventDefault();
     // await axios.post('http://localhost:3001/character/create/', char);//solicitud al back de tipo 
@@ -72,7 +81,7 @@ history('/home');
 
 
 return(
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='form-create'>
         <label>Name</label>
         <input name='name' value={char.name} onChange={handleChange} />
 
@@ -80,10 +89,17 @@ return(
         <input name='species' value={char.species} onChange={handleChange} />
 
         <label>Origin</label>
-        <input name='origin' value={char.origin} onChange={handleChange} />
+        <select onChange={handleSelectOrigin}>
+         <option value='all'> All Origins</option>
+         <option value='unknown'>Unknown</option>
+         <option value='Abadango'>Abadango</option>
+         <option value='Earth (C-137)'>Earth (C-137)</option>
+         <option value='Earth (Replacement Dimension)'>Earth (Replacement Dimension)</option>
+         </select>
+        {/* <input name='origin' value={char.origin} onChange={handleChange} /> */}
 
-        <label>Image</label>
-        <input name='image' value={char.image ? char.image : personajeImg} onChange={handleChange} />
+        
+        <img src={personajeImg} alt='imgPer' />
 
         <select onChange={handleSelect}>
             {

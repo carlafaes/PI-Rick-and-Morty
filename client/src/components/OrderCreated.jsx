@@ -13,21 +13,16 @@ export default function OrderCreated({set}){
     return(
         <div>
             <label >Order Info <br/></label>
-            <select onChange={e => handlerFilterCreated(e)}>
-            <label>
-               <input type='checkbox' id="created" value='created' />
+            <select onChange={e => handlerFilterCreated(e)}> 
+               <option id="created" value='createdInDb' >
                 Characters Created
-            </label>
-            <br/>
-            <label>
-               <input type='checkbox' id="api" value='api' />
+            </option>
+               <option  id="api" value='api' >
                 Characters Api
-            </label>
-            <br/>
-            <label>
-               <input type='checkbox' id="all" value='all' />
+            </option>
+               <option  id="all" value='all'>
                  All Characters
-            </label>
+            </option>
             </select>
         </div>
     )

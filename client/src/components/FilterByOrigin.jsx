@@ -5,7 +5,7 @@ import { filterByOrigin } from "../actions/indexActions";
 export default function FilterByOrigin(){
     const dispatch= useDispatch();
     const allEpis= useSelector((state)=> state.characters)
-    console.log(allEpis,'allEpis')
+    // console.log(allEpis,'allEpis')
 
 
     function handlerFilterEpisodes(e){

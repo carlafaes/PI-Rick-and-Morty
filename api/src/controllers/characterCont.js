@@ -93,9 +93,9 @@ const postCharacter= async(req,res)=>{
             where:{
                 name: aCharacter.name,
                 species: aCharacter.species,
-                origin: aCharacter.origin,
+                origin: aCharacter.origin.toString(),
                 image: aCharacter.image,
-                created:true,
+                createdInDb:true,
             }
             
         })

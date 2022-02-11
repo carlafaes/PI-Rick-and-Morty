@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+.container-landing{
+    background-color: black;
+}
+.titulo-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+     background-image: linear-gradient(to bottom, rgba(109, 13, 13, 0.158), rgba(145, 10, 111, 0.7)),url('https://www.wallpapertip.com/wmimgs/9-97156_rick-and-morty-android-wallpaper-with-high-resolution.jpg');
+     background-repeat: no-repeat;
+     background-size: 240px 670px;
+    width: 240px;
+    height: 670px;
+    margin-left: -9px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: -10px;
+    z-index: 15;
+}
+.video{
+    position: absolute;
+    width: 121vh;
+    margin-left: 205px;
+    top: -0px;
+    height: 100%;
+    object-fit: cover;
+    /* transform: translate(-50%,-50%); */
+    z-index: 2;
+}
+.titulo-welc{
+    font-family: 'Creepster', cursive;
+    font-size: 42px;
+    position: absolute;
+    /* color: linear-gradient(to bottom, rgba(109, 13, 13, 0.158),chartreuse); */
+    background: -webkit-linear-gradient(rgb(60, 165, 34), rgb(13, 99, 10));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-right: 10px;
+    letter-spacing: 2px;
+    width: 200px;
+    height:200px;
+    
+    
+}
+.btn-la{
+    position: relative;
+    z-index: 40;
+}

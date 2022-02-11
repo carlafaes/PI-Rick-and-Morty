@@ -92,7 +92,7 @@ export default function rootReducer(state=initialState,action){
             let filterEpi=[]
             if(action.payload === 'all'){
                 filterEpi=allEpi;
-                console.log(filterEpi,'filter epi if')
+                // console.log(filterEpi,'filter epi if')
             }
             else{
                 filterEpi= allEpi.filter(el => el.origin.includes( action.payload))
@@ -109,11 +109,16 @@ export default function rootReducer(state=initialState,action){
                   details: action.payload,
                 }
         case FILTER_CREATED:{
-            const createdFilter= action.payload === 'created' ?
-            state.characters.filter((el)=> el.created) :
-            state.characters.filter((el)=> !el.created);
-            const allRec= action.payload === 'all'? state.characters : createdFilter;
+            const allCh= state.characters;
+            console.log(allCh,'allch')
+
+            let createdFilter= action.payload === 'createdInDb' ?
+            allCh.filter((el)=> el.createdInDb) : allCh.filter((el)=> !el.createdInDb);
+            console.log(createdFilter,'created filter')
+
+            let allRec= action.payload === 'all'? allCh : createdFilter;
             console.log(allRec,'allRec')
+            
               return{
                 ...state,
                    filtered:allRec

@@ -1,0 +1,7 @@
+.form-create{
+    background-color: blueviolet;
+    margin-top: 100px;
+    height: 500px;
+    width: 500px;
+    z-index: 10;
+}
