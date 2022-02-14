@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import video from './../img/DiseñoRM.mp4';
+import video from './../img/rick_and_morty.mp4';
 import './styles/Landing.css';
 
 export default function Landing(){
@@ -10,14 +10,14 @@ export default function Landing(){
              
             <div className="menu-landing">
                 <div className="titulo-btn">
-                    <h1>
+                    {/* <h1>
                         <span className="titulo-welc">
-                            Welcome to <br/> Rick and Morty app
+                            Welcome to 
                         </span>
-                    </h1>
+                    </h1> */}
                 <Link to='/home'>
                     <button className="btn-la">
-                        Enter
+                        Go!
                     </button>
                 </Link>
                 </div>

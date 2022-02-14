@@ -1,22 +1,53 @@
 .input-page{
-    background-color: aquamarine;
-    width: 49px;
-    height: 35px;
+    background-color: rgb(13, 54, 83,0.5);
+    width: 40px;
+    height: 25px;
     position: unset;
     margin-top: 2px;
     padding-left: 2px;
-    border-radius: 3px;
+    border-radius: 10px;
+    color: #cfbe8b;
+    text-shadow: black 2px 2px;
+    font-size: large;
+    font-family: 'Creepster', cursive;
+    
 }
 .max-page{
+    padding-top: 6px;
+    font-size: large;
     width: 40px;
     height: 30px;
+    color: #cfbe8b;
+    text-shadow: black 2px 2px;
+    font-family: 'Creepster', cursive;
 }
 
 .container-page{
-    
     display: flex;
     flex-direction: row;
-    margin-left: 590px;
-    height: 43px;
-    margin-top: -498px;
+    margin-left: 570px;
+    height: 40px;
+    margin-top: -519px;
+}
+
+.fondo-page{
+    width: 128px;
+    margin-left: -25px;
+    height: 39px;
+    position: absolute;
+    z-index: -1;
+    margin-top: 22px;
+}
+
+
+
+@media (max-width:575px){
+    .container-page{
+    
+        display: flex;
+        /* flex-direction: row; */
+        margin-left: 245px;
+        height: 43px;
+        margin-top: -420px;
+    }   
 }

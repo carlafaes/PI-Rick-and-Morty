@@ -18,10 +18,10 @@ export default function Order({set}){
 
     return(
         <div>
-            <label>Order Alphabetic<br/></label>
-            <select id='btn-order'  onChange={(e)=>handleSelect(e)}>
-                <option value="az">az</option>
-                <option value="za">za</option>
+            <label className="label-listas">Order Alphabetic<br/></label>
+            <select className="select-filters" id='btn-order'  onChange={(e)=>handleSelect(e)}>
+                <option className="option-value-filters" value="az">az</option>
+                <option className="option-value-filters" value="za">za</option>
                 {/* <option value="default">default</option> */}
             </select>
         </div>

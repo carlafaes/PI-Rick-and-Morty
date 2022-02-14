@@ -12,15 +12,15 @@ export default function OrderCreated({set}){
 
     return(
         <div>
-            <label >Order Info <br/></label>
-            <select onChange={e => handlerFilterCreated(e)}> 
-               <option id="created" value='createdInDb' >
+            <label className="label-listas">Order Info <br/></label>
+            <select className="select-filters" onChange={e => handlerFilterCreated(e)}> 
+               <option className="option-value-filters" id="created" value='createdInDb' >
                 Characters Created
             </option>
-               <option  id="api" value='api' >
+               <option className="option-value-filters"  id="api" value='api' >
                 Characters Api
             </option>
-               <option  id="all" value='all'>
+               <option className="option-value-filters" id="all" value='all'>
                  All Characters
             </option>
             </select>

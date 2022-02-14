@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import './styles/Card.css'
-import personajeIMG from '../img/Rick-morty-1.jpeg'
+import personajeIMG from '../img/rick_create.gif'
 // import Modal from './Modal';
 // import Detail from './Detail';
 
@@ -24,7 +24,7 @@ export default function Card({name,image,species,id}){
                 <h1 className='titulo-card'>Name: {name}</h1>
             </div>
             <div>
-            <p>Specie: {species}</p>
+            <p  className='titulo-card'>Specie: {species}</p>
             </div>
             <div>
             <img src={image? image : personajeIMG} alt="imgCard" className='imgCard'/>

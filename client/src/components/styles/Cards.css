@@ -1,28 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Creepster&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  
+}
+.container-app{
+  position: fixed;
+  margin: 0;
+  margin-top: -60px;
+  height: 100%;
+  width: 100%;
+  /* background-image: url('https://fondosmil.com/descargar/rick-y-morty-27402'); */
+  /* background-image: url('https://fondosmil.com/descargar/rick-y-morty-27387'); */
+  /* background-image: url('https://fondosmil.com/descargar/rick-y-morty-27345'); */
+  background-image: url('https://p4.wallpaperbetter.com/wallpaper/979/756/6/tv-rick-and-morty-adult-swim-morty-smith-wallpaper-preview.jpg');
+/* background-image: url('https://fondosmil.com/descargar/rick-y-morty-27337'); */
+/* background-image: url('https://images4.alphacoders.com/633/thumb-1920-633192.jpg'); */
+
+ background-repeat: no-repeat;
+ background-size: cover;
+}
+
 .slider{
 
     position: relative;
     height: 70vh;
     width: 671px;
-    top: -537px;
-    display: flex;
+    top: -544px; 
+     display: flex;
     justify-content: center;
-    align-items: center;
-    background: green;
-    margin-left: 261px;
+    align-items:flex-end;
+    
+    margin-left: 247px;
     z-index: 100;
+}  
+
+.app-imgs{
+    position: absolute;
+    z-index: 200;
+    width: 50%;
+    margin: 10rem auto;
+    height: 570px;
 }
 
-
-
+.menu-bars {
+    position: absolute;
+    margin-left: 2rem;
+    font-size: 2rem;
+    background: none;
+    z-index: 200;
+  }
+  
+  .nav-menu {
+    background: linear-gradient(to right,#795527e6,rgba(122, 83, 67, 0.5));
+    width: 250px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 55px;
+    /* left: -100%; */
+    transition: 850ms;
+    z-index: 200;
+    margin-left: -6px;
+  }
+  .nav-menu.active {
+    left: 0;
+    transition: 350ms;
+  }
 
 
 /* z-index 10 */
 .right-arrow{
     position: absolute;
     top: 50%;
-    right: 32px;
+    right: 12px;
     font-size: 3rem;
-    color: black;
+    color: rgb(58, 212, 53,0.8);
     z-index: 10;
     cursor: pointer;
     user-select: none;
@@ -31,9 +85,9 @@
 .left-arrow{
     position: absolute;
     top: 50%;
-    left: 67px;
+    left: 10px;
     font-size: 3rem;
-    color: black;
+    color: rgb(57, 212, 51,0.8);
     z-index: 10;
     cursor: pointer;
     user-select: none;
@@ -49,20 +103,205 @@
     transition-duration: 1s;
     transform: scale(1.10);
   }
+  .button1{
+    background: transparent;
+    border-style: none;
+    position: absolute;
+    z-index: 4;
+    left: -10px;
+    top: 0px;
+    width: 80px;
+    /* display: none; */
+    height: 60px;
+    padding: 0;
+    transition: 0.5s;
+    color: transparent;
+  }
+  .button1:hover{
+    background: linear-gradient(to right,#7956279c,rgba(167, 112, 90, 0.2));
+    transition-delay: 0.2s;
+    box-shadow: 0 0 10px #403820,0 0 10px #665128, 0 0 10px #3d3030;
+    
+  }
+
+  
+.button_x{
+    display: none;
+    background:linear-gradient(to right, #d6a772,rgb(64, 48, 48,0.7));
+    position: absolute;
+    height: 30px;
+    /* display: flex; */
+    margin-top: 40px;
+    left: 200px;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    border-style: none;
+    padding: 5px;
+    z-index: 300;
+  }
   .menu-listas{
-      background-color: aqua;
+     background-color: transparent;
       z-index: 80;
-      height: 600px;
-      width: 250px;
+      height: 570px;
+      width: 220px;
+      margin-top: 72px;
+      margin-left: -7px;
 
   }
 
   .ul-menu{
-      padding-top: 60px;
-      padding-left: 6px;
+      
+    background: linear-gradient(to top,rgb(13, 54, 83,0.5),#39d433);
+      padding-top: 1px;
+      padding-left:12px;
   }
   .li-menu{
-      padding-top: 40px;
+      padding-top: 10px;
+      display: flex;
+      height: 120px;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
       list-style: none;
      
+  }
+  
+
+  .searchBarC{
+    position: relative;
+    left: -45px;
+    padding-left: 47px;
+    width: 266px;
+    height: 30px;
+    margin-top: 30px;
+  z-index: 20;
+  
+    /* background-color: aliceblue; */
+}
+/* .searc-cards{
+    z-index: 500;
+
+} */
+
+.label-listas{
+  color: #cfbe8b;
+  text-shadow: rgba(9, 58, 5, 0.733) 2px 2px;
+  font-family: 'Creepster', cursive;
+  transition: all ease-out 0.2s;
+}
+.label-listas:hover{
+  font-size: 22px;
+  text-shadow: #11b775 2px 3px 2px;
+}
+
+.select-filters{
+  background: linear-gradient(to top,#0e4761,#13b189c2);
+  border-color: transparent;
+  box-shadow: #031b27a6 0px  0px;
+  width: 140px;
+}
+
+.option-value-filters{
+  background-color:#13b189c2;
+  color: #0e4761;
+}
+
+  @media (max-width:575px){
+    .nav-menu {
+        background: linear-gradient(to right,#795527e6,rgba(122, 83, 67, 0.5));
+        width: 250px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 36px;
+        left: -100%; 
+        transition: 850ms;
+        z-index: 200;
+        margin-left: -6px;
+      }
+       .nav-menu.active {
+        left: 0;
+        transition: 350ms;
+      } 
+
+      .button_x{
+        
+        background:linear-gradient(to right, #d6a772,rgb(64, 48, 48,0.7));
+        position: absolute;
+        height: 30px;
+         display: flex; 
+        margin-top: 40px;
+        left: 200px;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        border-style: none;
+        padding: 5px;
+        z-index: 300;
+      }
+
+      .button1{
+        background: rgba(32, 107, 10, 0.5);
+        border-style: none;
+        position: absolute;
+        z-index: 4;
+        left: -25px;
+        top: -10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        transition: 0.5s;
+        color: green;
+      }
+       .button1:hover{
+        background: linear-gradient(to right,#7956279c,rgba(167, 112, 90, 0.2));
+        transition-delay: 0.2s;
+        box-shadow: 0 0 10px #403820,0 0 10px #665128, 0 0 10px #3d3030;
+        
+      } 
+      .slider{
+
+        position: relative;
+        height: 55vh;
+        width: 424px;
+        top: -489px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background: green; */
+        margin-left: 59px;
+        z-index: 100;
+    }
+
+    .right-arrow{
+        position: absolute;
+        top: 50%;
+        right: -12px;
+        font-size: 2rem;
+        color: black;
+        z-index: 10;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .left-arrow{
+        position: absolute;
+        top: 50%;
+        left: -10px;
+        font-size: 2rem;
+        color: black;
+        z-index: 10;
+        cursor: pointer;
+        user-select: none;
+    }
+    .searchBarC{
+        position: absolute;
+        z-index: 10;
+        left: 0px;
+        padding-left: 270px;
+        width: 100%;
+        margin-top: 60px;
+        background-color: #403820;
+        display: inline;
+    }
   }

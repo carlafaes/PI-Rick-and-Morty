@@ -12,11 +12,11 @@ export default function Filter(){
 
     return(
         <div>
-            <label >Filter By Species<br/></label>
-            <select onChange={handleSelect}>
-                <option value="default">All</option>
-                <option value="Alien">Alien</option>
-                <option value="Human">Human</option>
+            <label className="label-listas" >Filter By Species<br/></label>
+            <select className="select-filters" onChange={handleSelect}>
+                <option className="option-value-filters" value="default">All</option>
+                <option className="option-value-filters" value="Alien">Alien</option>
+                <option className="option-value-filters" value="Human">Human</option>
             </select>
         </div>
     );

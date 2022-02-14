@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './styles/Pagination.css'
 // import prev from './img/flechaback.png'
 // import next from './img/flechanext.png'
+import pagefondo from './../img/page-gif.gif';
 
 
  
@@ -49,6 +50,8 @@ export default function Pagination({current,setCurrentPage,max}){
            <input className='input-page' name='page' autoComplete='off' value={current} onKeyDown={e => onKeyDown(e)} onChange={ e => onChange(e)} />
 
            <p className='max-page'> de {max}</p>
+
+           <img className='fondo-page' src={pagefondo} alt='page-fondo' />
 
            {/* <button className='btn-page' onClick={nextPage} disabled={currentPage === max || currentPage > max || currentPage === NaN}>
                     ⫸next

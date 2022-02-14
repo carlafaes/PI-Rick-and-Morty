@@ -22,14 +22,16 @@ export default function SearchBar(){
     }
 
     return(
-        <div>
+        <div className='searc-cards'>
+        <div className='searchBarC'>
             <form onSubmit={onSubmit}>
-                <div>
-                    <input type="text" placeholder='Search character' value={search} onChange={onInputChange} />
-                    <input type="submit" value='Search🔍' onSubmit={onSubmit} />
+                <div className='box-search'>
+                    <input className='innput-box' type="text" placeholder='Search character' value={search} onChange={onInputChange} />
+                    <input className='submit-in' type="submit" value='Search🔍' onSubmit={onSubmit} />
                 </div>
 
             </form>
+        </div>
         </div>
     )
 }

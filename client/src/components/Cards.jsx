@@ -11,6 +11,7 @@ import Order from './Order';
 import SearchBar from './SearchBar'
 import {FaArrowAltCircleRight,FaArrowAltCircleLeft} from 'react-icons/fa'
 import './styles/Cards.css';
+import loading from './../img/giphy_loading.gif'
 
 
 
@@ -49,9 +50,11 @@ export default function Cards(){
     }
     return(
         <div>
-           <div>
+            <div >
            <SearchBar value={setOrder}/>
            </div>
+        <div className='container-app'>
+           
        
         <div className='menu-listas'>
             <ul className='ul-menu'>
@@ -75,7 +78,7 @@ export default function Cards(){
             <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide}/>
             <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide}/>
             {
-                renderChar.length >0?(
+                renderChar && renderChar.length >0?(
                 renderChar.map((char,index)=>(
                     
                     <div key={index} className={index === current ? 'slide_active' : 'slide'}>
@@ -96,7 +99,13 @@ export default function Cards(){
                 
                 ):
                 (
-                    <h1>Loading</h1>
+                    <div className="container_loading">
+                    <img className='gif_loading' src={loading}  />
+                    <div className="loading"> 
+                    Loading...
+                    </div>
+                   </div> 
+                    
                 )                
             }
 
@@ -107,6 +116,7 @@ export default function Cards(){
                 setCurrent={setCurrent}
                 max= {max} />
         </div>      
+        </div>
         </div>
     )
 }

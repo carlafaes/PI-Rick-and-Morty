@@ -1,7 +1,66 @@
 .form-create{
-    background-color: blueviolet;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(58, 226, 43, 0.3);
     margin-top: 100px;
     height: 500px;
-    width: 500px;
+    width: 700px;
     z-index: 10;
+    margin-left: 10%;
+    margin-right: 20%;
+    padding-left: 50px;
+    border-radius: 10px;
+}
+
+.container-create{
+    position: absolute;
+    width: 100%;
+    top: -10px;
+    height: 687px;
+    background-image: url('https://w0.peakpx.com/wallpaper/767/192/HD-wallpaper-tv-show-rick-and-morty-morty-smith-rick-sanchez.jpg');
+    background-size: cover;
+}
+
+.pers{
+    position: absolute;
+    z-index: 20;
+    margin-top: 150px;
+    margin-left: 150px;
+    width: 300px;
+    height: 350px;
+}
+.select_create{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 50%;
+}
+.input_create{
+    width: 250px;
+    background-color: rgb(79, 10, 42,0.7);
+    padding-top: 25px;
+    margin-top: 15px;
+}
+.buttn_create{
+    margin-top: 30px;
+    margin-left: 40%;
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom,#922057,#197a26c2);
+  border-color: transparent;
+  box-shadow: #031b27a6 0px  0px;
+  text-shadow: rgba(9, 58, 5, 0.733) 2px 2px;
+  font-family: 'Creepster', cursive;
+  color: #9c7086;
+  transition: all ease-in-out 0.5s;
+}
+.buttn_create:hover{
+    color: #0e4761;
+    background: linear-gradient(to top,#11dab7,#2ead8ec2);
+    text-shadow: rgba(9, 58, 5, 0.733) 6px 6px 6px;
 }

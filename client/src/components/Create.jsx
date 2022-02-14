@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { getEpisodes,addCharType,addChar } from '../actions/indexActions';
 // import axios from 'axios';
 import { useNavigate} from 'react-router-dom'
-import personajeImg from '../img/imgPer.jpg'
+import personajeImg from '../img/rick_create.gif'
 import './styles/Create.css';
 
 
@@ -81,15 +81,21 @@ history('/home');
 
 
 return(
-    <form onSubmit={handleSubmit} className='form-create'>
-        <label>Name</label>
-        <input name='name' value={char.name} onChange={handleChange} />
+    <div className='container-create'>   
 
-        <label>Specie</label>
-        <input name='species' value={char.species} onChange={handleChange} />
+    <div>
+    <img className='pers' src={personajeImg} alt='imgPer' />
+    </div>
+         <form onSubmit={handleSubmit} className='form-create'>
+        <div className='select_create'>
+        <label className='label-listas'>Name</label>
+        <input className='input_create' name='name' value={char.name} onChange={handleChange} />
 
-        <label>Origin</label>
-        <select onChange={handleSelectOrigin}>
+        <label className='label-listas'>Specie</label>
+        <input className='input_create' name='species' value={char.species} onChange={handleChange} />
+
+        <label className='label-listas'>Origin</label>
+        <select className='input_create' onChange={handleSelectOrigin}>
          <option value='all'> All Origins</option>
          <option value='unknown'>Unknown</option>
          <option value='Abadango'>Abadango</option>
@@ -99,9 +105,9 @@ return(
         {/* <input name='origin' value={char.origin} onChange={handleChange} /> */}
 
         
-        <img src={personajeImg} alt='imgPer' />
-
-        <select onChange={handleSelect}>
+        
+        <label className='label-listas'>Episodes</label>
+        <select className='input_create' onChange={handleSelect}>
             {
                 stateEpisodes.length > 0 && 
                 stateEpisodes.map((ep)=>{
@@ -114,8 +120,11 @@ return(
 
             }
         </select>
-        <button type='submit' >Create</button>
+        <button className='buttn_create' type='submit' >Create</button>
+        </div>
     </form>
+    </div>
+
 )
 
 }
