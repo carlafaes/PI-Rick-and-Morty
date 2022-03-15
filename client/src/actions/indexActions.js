@@ -1,8 +1,8 @@
 import { GET_ALL,FILTER,FILTER_CREATED, GET_EPISODE,SEARCH_BY_NAME, ORDER, ADD_CHAR,GET_DETAILS,CLEAN_Q,FILTER_ORIGIN } from "./types";
 import axios from 'axios';
 
-export const ROUT_GET = `http://localhost:3001/character/getCharacters`
-export const ROUT_GET_EPISODE= 'http://localhost:3001/episode/getEpisodes'
+export const ROUT_GET = `/character/getCharacters`
+export const ROUT_GET_EPISODE= '/episode/getEpisodes'
 
 export function getChar(){
     return async function get(dispatch){
@@ -15,7 +15,7 @@ export function getChar(){
 }
 export function getDetails(id){
     return async (dispatch)=>{
-        const details= await axios.get('http://localhost:3001/character/'+ id);
+        const details= await axios.get('/character/'+ id);
         const data=details.data;
         console.log(data, 'ESTE ES EL Data')
         return dispatch({
@@ -73,7 +73,7 @@ export function orderFil(value){
 export const searchByName= (name)=>{
     return async (dispatch)=>{
         try{
-            const getName= await axios.get(`http://localhost:3001/character/getCharacters?name=${name}`)
+            const getName= await axios.get(`/character/getCharacters?name=${name}`)
             const searchName=getName.data.flat()
              console.log(searchName, 'error getname')
                 return dispatch({
@@ -88,7 +88,7 @@ export const searchByName= (name)=>{
  }
       export function addChar(payload){
         return async function(dispatch){
-            const created= await axios.post('http://localhost:3001/character/create/',payload);
+            const created= await axios.post('/character/create/',payload);
             // console.log(created)
             return created;
         }

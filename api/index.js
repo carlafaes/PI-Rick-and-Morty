@@ -11,7 +11,7 @@ conn.sync({ force: true }).then( () => {
   //   getEpisodes() //si no hay nada realiza la precarga
   // }
 
-  server.listen(3001, () => {
+  server.listen(process.env.PORT, () => {
     console.log('Listening at 3001') // eslint-disable-line no-console
   })
 })
